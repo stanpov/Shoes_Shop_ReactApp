@@ -4,6 +4,14 @@ import {withStyles,makeStyles} from '@material-ui/core';
 import {
     CssBaseline,
     Button,
+    MenuList,
+    MenuItem,
+    Grow,
+    Paper,
+    Popper,
+    createStyles,
+    ClickAwayListener
+    
 } from '@material-ui/core'
 
 //Material UI icons
@@ -18,9 +26,20 @@ ShoppingCartOutlined
 export {
     withStyles,
     makeStyles,
+    Button,
     StarBorder,
     AccountCircleOutlined,
-    ShoppingCartOutlined
+    ShoppingCartOutlined,
+    MenuList,
+    MenuItem,
+    Grow,
+    Paper,
+    Popper,
+    createStyles,
+    ClickAwayListener
+    
+
+
     
 }
 
