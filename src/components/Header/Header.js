@@ -34,7 +34,7 @@ function Header() {
                 </div>
                 </Link>
                 <div className="shop-header-categories">
-                    <NavLink to='/login' className="nav-link-item-active" activeClassName="is-active"><span>Men</span></NavLink>
+                    <NavLink to='/men' className="nav-link-item-active" activeClassName="is-active"><span>Men</span></NavLink>
                     <NavLink to='/women' className="nav-link-item-active" activeClassName="is-active"><span>Women</span></NavLink>
                     <NavLink to='/kids' className="nav-link-item-active" activeClassName="is-active"><span>Kids</span></NavLink>
                     <NavLink to='/hotsale' className="nav-link-item-active" activeClassName="is-active"><span className="span-hot-sale">Hot Sale</span></NavLink>

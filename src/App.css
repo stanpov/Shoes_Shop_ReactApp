@@ -1,10 +1,15 @@
 * {
   margin: 0;
   padding: 0;
+  
 }
 header {
   position: sticky;
   position: -webkit-sticky;
   top: 0; /* required */
+  z-index: 1;
+}
+.App {
+  background-color: #f0f2f5;
 }
 

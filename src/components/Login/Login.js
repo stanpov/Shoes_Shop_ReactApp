@@ -1,10 +1,18 @@
-import React from 'react'
+import React from 'react';
+import "./Login.css";
 
 const Login = () => {
     return (
-        <div>
-            <h1>login pageEE</h1>
+        <>
+        <div className="login_form_holder">
+            
+            <form className='login_form'>
+                <label>Username</label>
+                
+            </form>
+            
         </div>
+        </>
     )
 }
 
