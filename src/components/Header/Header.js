@@ -1,7 +1,9 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import './Header.css';
+import {auth} from '../../firebase/config'
 import { NavLink, Link } from 'react-router-dom'
 import { StarBorder, AccountCircleOutlined, ShoppingCartOutlined, Button, MenuList, MenuItem, Popper, Paper, Grow,ClickAwayListener  } from '../../config/materialConfig';
+import {AuthContext} from '../../globalContext/AuthContext'
 
 
 
@@ -9,6 +11,8 @@ function Header() {
     
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
+    const {user} = useContext(AuthContext);
+
     
 
     const handleToggle = (e) => {
@@ -17,9 +21,14 @@ function Header() {
         setOpen(true)
     }
 
-    const handleClose = (e) => {
-        e.preventDefault()
+    const handleClose = () => {
+        
         setOpen(false)
+    }
+
+    const logOut = ()=>{
+        auth.signOut();
+        handleClose()
     }
 
     useEffect(()=>{
@@ -59,12 +68,18 @@ function Header() {
                                     <Paper>
                                         <ClickAwayListener onClickAway={handleClose}>
                                             <MenuList autoFocusItem={open} id="menu-list-grow" >
-                                                <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/profile">Profile</Link></MenuItem>
-                                                <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/favorites">Favorites</Link></MenuItem>
-                                                <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/history">History</Link></MenuItem>
-                                                <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/login">Login</Link></MenuItem>
-                                                <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/register">Register</Link></MenuItem>
-                                                <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/logout">Logout</Link></MenuItem>
+                                                {user ? (
+                                                    <>
+                                                     <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/profile">Profile</Link></MenuItem>
+                                                     <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/favorites">Favorites</Link></MenuItem>
+                                                     <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/history">History</Link></MenuItem>
+                                                     <MenuItem onClick={()=>logOut()}><Link className="profile-menu-items" to="/">Logout</Link></MenuItem>
+                                                    </> ) : (
+                                                    <> <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/login">Login</Link></MenuItem>
+                                                    <MenuItem onClick={handleClose}><Link className="profile-menu-items" to="/register">Register</Link></MenuItem>
+                                                    </>
+                                                    )}
+
                                             </MenuList>
                                         </ClickAwayListener>
                                     </Paper>
@@ -72,9 +87,9 @@ function Header() {
                             )}
                         </Popper>
                     </div>
-                    <div className="account-favorite">
+                    {user && <div className="account-favorite">
                         <Link className="account-products" to="/favorites"><StarBorder /></Link> 
-                    </div>
+                    </div>}
                     <div className="account-products">
                        <Link className="account-products" to='/myorder'><ShoppingCartOutlined /></Link> 
                         <span className="item-number">0</span>

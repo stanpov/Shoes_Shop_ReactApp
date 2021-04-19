@@ -1,8 +1,8 @@
-  
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import {Link,useHistory} from 'react-router-dom';
-import {auth} from '../../firebase/config'
+import {auth} from '../../firebase/config';
 import {Avatar,Button,TextField,Grid,Typography,makeStyles,Container} from '../../config/materialConfig';
+import {AuthContext} from '../../globalContext/AuthContext'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,32 +31,51 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Login() {
+export default function Register() {
+    const [username,setUsername] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [rePassword,setRePassword] = useState('');
     const classes = useStyles();
     const history = useHistory();
+    const {setAuthDisplayName} = useContext(AuthContext)
 
-    const signIn = (e)=>{
+
+    const signUp =(e)=>{
         e.preventDefault();
 
-        auth.signInWithEmailAndPassword(email,password)
+        auth.createUserWithEmailAndPassword(email,password)
         .then(()=>{
-            history.push('/');
+            setAuthDisplayName(username);
+            history.push('/')
         })
         .catch((error)=>{
-            console.log(error.message)
+            console.log(error.message);
         })
+        
     }
 
   return (
-    <Container className="login_container" component="main" maxWidth="xs" >
+    <Container className="login_container" component="main" maxWidth="xs">
       <div className={classes.paper}>
         <Avatar className={classes.avatar}/>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign up
         </Typography>
         <form className={classes.form} noValidate>
+        <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+            value={username}
+            onChange={(e)=>setUsername(e.target.value)}
+          />
           <TextField
             variant="outlined"
             margin="normal"
@@ -66,7 +85,6 @@ export default function Login() {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
             value={email}
             onChange={(e)=>setEmail(e.target.value)}
           />
@@ -83,25 +101,32 @@ export default function Login() {
             value={password}
             onChange={(e)=>setPassword(e.target.value)}
           />
+           <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="rePassword"
+            label="Cofirm password"
+            type="password"
+            id="rePassword"
+            value={rePassword}
+            onChange={(e)=>setRePassword(e.target.value)}
+          />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={signIn}
+            onClick={signUp}
           >
-            Sign In
+            Sign Up
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link className={classes.links} to="/forgotpass" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
             <Grid item>
-              <Link className={classes.links} to="/register" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link className={classes.links} to="/login" variant="body2">
+                {"Already have an account? Sign In"}
               </Link>
             </Grid>
           </Grid>

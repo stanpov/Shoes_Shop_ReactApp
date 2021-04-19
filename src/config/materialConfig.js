@@ -2,6 +2,7 @@ import {withStyles,makeStyles} from '@material-ui/core';
 
 //Material UI components
 import {
+
     CssBaseline,
     Button,
     MenuList,
@@ -11,6 +12,20 @@ import {
     Popper,
     createStyles,
     ClickAwayListener,
+    Avatar,
+    TextField,
+    Grid,
+    Typography,
+    Container,
+    Card,
+    CardActionArea,
+    CardActions,
+    CardContent,
+    CardMedia,
+    ButtonBase
+
+
+
     
     
 } from '@material-ui/core'
@@ -19,7 +34,14 @@ import {
 import {
 StarBorder,
 AccountCircleOutlined,
-ShoppingCartOutlined
+ShoppingCartOutlined,
+Facebook,
+Instagram,
+Twitter,
+Pinterest,
+LinkedIn,
+
+
 
 } from '@material-ui/icons'
 
@@ -38,6 +60,22 @@ export {
     Popper,
     createStyles,
     ClickAwayListener,
+    Facebook,
+    Instagram,
+    Twitter,
+    Pinterest,
+    LinkedIn,
+    Avatar,
+    TextField,
+    Grid,
+    Typography,
+    Container,
+    Card,
+    CardActionArea,
+    CardActions,
+    CardMedia,
+    CardContent,
+    ButtonBase
    
     
 
