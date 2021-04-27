@@ -1,0 +1,20 @@
+.my_best_items_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: safe;
+    align-items: center;
+    margin: 20px 20px 20px 20px;
+    width: 200px;
+    
+}
+.my_best_item_picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: 8px 7px 8px rgba(0,0,0,0.5);
+}
+.favorite_btn_ {
+    margin-top: 10px !important;
+    font-size: 10px !important;
+    border-radius: 30px 30px 30px 30px !important;
+}

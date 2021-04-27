@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from './config/materialConfig';
+import {initialState,reducer} from './Reducer/reducer';
+import {ProductProvider} from './globalContext/ProductsContext'
 
 ReactDOM.render(
   <>
   <CssBaseline />
+  <ProductProvider initialState={initialState} reducer={reducer}>
   <App />
+  </ProductProvider>
   </>,
   document.getElementById('root')
 );

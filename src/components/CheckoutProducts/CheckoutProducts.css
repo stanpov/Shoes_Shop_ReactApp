@@ -1,0 +1,23 @@
+.checkoutProducts_{
+    display: flex;
+    height: 110px;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid black;
+    box-shadow: 6px 5px 6px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    border-radius: 20px 20px 20px 20px;
+    overflow: hidden;
+
+}
+.checkout_img {
+    object-fit: contain;
+    width: 80px;
+    height: auto;
+}
+.checkout_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}

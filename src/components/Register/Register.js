@@ -38,15 +38,15 @@ export default function Register() {
     const [rePassword,setRePassword] = useState('');
     const classes = useStyles();
     const history = useHistory();
-    const {setAuthDisplayName} = useContext(AuthContext)
+    const {setUser} = useContext(AuthContext)
 
 
     const signUp =(e)=>{
         e.preventDefault();
 
         auth.createUserWithEmailAndPassword(email,password)
-        .then(()=>{
-            setAuthDisplayName(username);
+        .then((authUser)=>{
+          setUser(authUser)
             history.push('/')
         })
         .catch((error)=>{

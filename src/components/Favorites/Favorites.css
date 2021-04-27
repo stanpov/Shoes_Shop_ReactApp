@@ -1,0 +1,18 @@
+.my_favorite {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.favorite_header {
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+.favorite_items_ {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}

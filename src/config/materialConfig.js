@@ -40,6 +40,7 @@ Instagram,
 Twitter,
 Pinterest,
 LinkedIn,
+DeleteForeverOutlined
 
 
 
@@ -75,7 +76,8 @@ export {
     CardActions,
     CardMedia,
     CardContent,
-    ButtonBase
+    ButtonBase,
+    DeleteForeverOutlined
    
     
 

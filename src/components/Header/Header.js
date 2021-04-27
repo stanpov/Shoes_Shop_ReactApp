@@ -4,7 +4,7 @@ import {auth} from '../../firebase/config'
 import { NavLink, Link } from 'react-router-dom'
 import { StarBorder, AccountCircleOutlined, ShoppingCartOutlined, Button, MenuList, MenuItem, Popper, Paper, Grow,ClickAwayListener  } from '../../config/materialConfig';
 import {AuthContext} from '../../globalContext/AuthContext'
-
+import {useProductValue} from '../../globalContext/ProductsContext'
 
 
 function Header() {
@@ -12,6 +12,7 @@ function Header() {
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
     const {user} = useContext(AuthContext);
+    const [{basket},dispatch] = useProductValue();
 
     
 
@@ -92,7 +93,7 @@ function Header() {
                     </div>}
                     <div className="account-products">
                        <Link className="account-products" to='/myorder'><ShoppingCartOutlined /></Link> 
-                        <span className="item-number">0</span>
+                        <span className="item-number">{basket?.length}</span>
                     </div>
 
                 </div>

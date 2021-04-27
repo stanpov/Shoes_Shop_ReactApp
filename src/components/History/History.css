@@ -1,0 +1,10 @@
+.history_info {
+    display: flex;
+}
+.history_orders {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+
+}

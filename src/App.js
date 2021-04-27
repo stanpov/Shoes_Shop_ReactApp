@@ -9,7 +9,10 @@ import Footer from './components/Footer/Footer';
 import Register from './components/Register/Register'
 import {AuthState} from './globalContext/AuthContext';
 import MenShoes from './components/MenShoes/MenShoes';
-import MenCasualShoes from './components/MenCasualShoes/MenCasualShoes'
+import MenCasualShoes from './components/MenCasualShoes/MenCasualShoes';
+import Basket from './components/Basket/Basket';
+import History from './components/History/History';
+import Favorites from './components/Favorites/Favorites';
 
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
         <Route path='/register' exact component={Register} />
         <Route path='/men' exact component={MenShoes} />
         <Route path='/men/casual' exact component={MenCasualShoes} />
+        <Route path='/myorder' exact component={Basket} />
+        <Route path='/history' exact component={History} />
+        <Route path='/favorites' exact component={Favorites} />
       </Switch>
       <Footer />
     </div>

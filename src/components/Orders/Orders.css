@@ -1,0 +1,38 @@
+.history_orders {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.order_history_picture {
+    height: 80px;
+    width: 80px;
+}
+.orders__history_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:safe;
+    border: 1px solid black;
+    box-shadow: 1px 6px 5px 6px rgba(0,0,0,0.5);
+    width: 300px;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: auto;
+}
+.orders_items_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+}
+.total_sum_history {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+.orders_pictures {
+    margin-right: 5px;
+   
+}

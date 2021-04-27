@@ -6,33 +6,27 @@ export const AuthContext = createContext();
 export const AuthState =({children})=>{
 
     const [user,setUser]=useState(null);
-    const [authDisplayName,setAuthDisplayName] = useState('')
 
     useEffect(()=>{
 
       auth.onAuthStateChanged((authUser)=>{
             if(authUser) {
-                if(authUser.displayName === null) {
-                    return authUser.updateProfile({
-                        displayName: authDisplayName
-                    })
-                } else {
-                    return setUser(authUser.displayName)
-                }
+               
+                    return setUser(authUser)
+                
             } else {
                return setUser(null)
             }
         })
         
         
-    },[user,authDisplayName])
+    },[user])
 
 
     return (
         <AuthContext.Provider value={{
             user,
             setUser,
-            setAuthDisplayName
         }}>
             {children}
         </AuthContext.Provider>
