@@ -6,10 +6,10 @@ import Zoomer from '../Zoomer/Zoomer'
 import Loader from '../Loader/Loader'
 
 
-function MenCasualShoes() {
+function ManRunning() {
     const [allShoes,setAllShoes] = useState([]);
     const [imageUrl,setImageUrl] = useState(null);
-    const {docs} = useFireStore('ManCasual');
+    const {docs} = useFireStore('ManRunning');
    
 
     
@@ -18,10 +18,9 @@ function MenCasualShoes() {
     
     },[docs])
 
-
     return (
         <Container maxWidth="xl">
-            {allShoes.length=== 0 ? <Loader /> :
+            {allShoes.length === 0 ? <Loader /> :
             <Grid container justify="space-around" spacing={2}>
             {allShoes.map(x=>{
                 return (
@@ -37,4 +36,4 @@ function MenCasualShoes() {
     )
 }
 
-export default MenCasualShoes
+export default ManRunning

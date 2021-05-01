@@ -1,6 +1,8 @@
 import React,{useState,useContext} from 'react';
 import{useHistory} from 'react-router-dom'
 import "./Basket.css";
+import {Zoom,toast,} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {useProductValue} from '../../globalContext/ProductsContext';
 import {Button} from '../../config/materialConfig';
 import {basketTotal} from '../../Reducer/reducer';
@@ -30,10 +32,32 @@ function Basket() {
                 type: "EMPTY_BASKET"
             })
             setPayment(true)
+            toast.success('✅ Successfully bought.',{
+                position: "bottom-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition:Zoom
+            })
             setTimeout(() => {
                 setPayment(false);
                 history.push('/');
+
             }, 2000);
+        }).catch((error)=>{
+            toast.error(`❌ ${error.message}`,{
+                position: "bottom-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition:Zoom
+            })
         })
 
     }

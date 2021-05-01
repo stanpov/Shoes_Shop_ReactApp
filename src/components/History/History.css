@@ -1,5 +1,6 @@
 .history_info {
     display: flex;
+    
 }
 .history_orders {
     display: flex;
@@ -7,4 +8,10 @@
     flex-wrap: wrap;
     width: 100%;
 
+}
+.history_info_empty_ {
+    display: flex;
+    margin: 0 auto;
+    height: 80vh;
+    margin-top: 30px;
 }

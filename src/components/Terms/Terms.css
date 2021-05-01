@@ -1,0 +1,8 @@
+.terms_page {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    margin-top: 40px;
+    align-items: center;
+}

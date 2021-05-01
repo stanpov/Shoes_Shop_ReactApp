@@ -1,5 +1,7 @@
 import React,{useContext} from 'react';
 import "./FavoriteCard.css"
+import {Zoom,toast,} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {Button,DeleteForeverOutlined} from '../../config/materialConfig';
 import {storage} from '../../firebase/config';
 import {AuthContext} from '../../globalContext/AuthContext';
@@ -11,6 +13,16 @@ function FavoriteCard({item}) {
         e.preventDefault()
 
         storage.collection('users').doc(user?.uid).collection('favorites').doc(item.id).delete()
+        toast.warning('✅ Removed from favorites',{
+            position: "bottom-right",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition:Zoom
+        })
     }
     return (
         <div className="my_best_items_card">

@@ -2,7 +2,6 @@ import React from 'react'
 import "./Orders.css"
 
 function Orders({order}) {
-    
     return (
         <div className="orders__history_div">
             <div className="total_sum_history"><strong>Total: {order.data.amount}$</strong></div>

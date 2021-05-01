@@ -1,6 +1,8 @@
   
 import React,{useState} from 'react';
 import {Link,useHistory} from 'react-router-dom';
+import {Zoom,toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {auth} from '../../firebase/config'
 import {Avatar,Button,TextField,Grid,Typography,makeStyles,Container} from '../../config/materialConfig';
 
@@ -42,10 +44,29 @@ export default function Login() {
 
         auth.signInWithEmailAndPassword(email,password)
         .then(()=>{
+          toast.success('✅ You are logged in.',{
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            transition:Zoom
+        })
             history.push('/');
         })
         .catch((error)=>{
-            console.log(error.message)
+          toast.error(`❌ ${error.message}`,{
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            transition:Zoom
+        })
         })
     }
 

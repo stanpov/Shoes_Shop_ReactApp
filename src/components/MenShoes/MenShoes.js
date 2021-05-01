@@ -56,7 +56,7 @@ function MenShoes() {
             
             <div className="class_information">
                 <h4>Formal men shoes</h4>
-                <span>Casual shoes are basically footwear which is a little less formal. Casual shoes are comfortable footwear which could be easily used for daily wear. Casual shoes are perfect for vacations and trips. Other than providing comfort these types of shoes come in great varieties and styles.</span>
+                <span>Formal shoes are also called dress shoes as they can be worn when 'dressing up' – suits, blazers, shirts, trousers, etc.</span>
             </div>
         </div>
         </>

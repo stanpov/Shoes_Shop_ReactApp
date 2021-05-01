@@ -1,5 +1,8 @@
 .header-image {
     width: 100%;
-    height: 350px;
+    height: 450px;
     object-fit: fill;
+}
+.home_div {
+    display: flex;
 }

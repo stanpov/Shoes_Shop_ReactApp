@@ -1,5 +1,7 @@
 import React,{useState,useContext} from 'react';
 import {Link,useHistory} from 'react-router-dom';
+import {Zoom,toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {auth} from '../../firebase/config';
 import {Avatar,Button,TextField,Grid,Typography,makeStyles,Container} from '../../config/materialConfig';
 import {AuthContext} from '../../globalContext/AuthContext'
@@ -47,10 +49,29 @@ export default function Register() {
         auth.createUserWithEmailAndPassword(email,password)
         .then((authUser)=>{
           setUser(authUser)
+          toast.success(`✅ Successfully created.Now you are logged in.`,{
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            transition:Zoom
+        })
             history.push('/')
         })
         .catch((error)=>{
-            console.log(error.message);
+          toast.error(`❌ ${error.message}`,{
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            transition:Zoom
+        })
         })
         
     }

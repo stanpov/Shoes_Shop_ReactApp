@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from './config/materialConfig';
 import {initialState,reducer} from './Reducer/reducer';
-import {ProductProvider} from './globalContext/ProductsContext'
+import {ProductProvider} from './globalContext/ProductsContext';
+import {AuthState} from './globalContext/AuthContext'
 
 ReactDOM.render(
   <>
   <CssBaseline />
+  <AuthState >
   <ProductProvider initialState={initialState} reducer={reducer}>
   <App />
   </ProductProvider>
+  </AuthState>
   </>,
   document.getElementById('root')
 );
